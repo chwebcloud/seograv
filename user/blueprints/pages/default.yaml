@@ -1,0 +1,204 @@
+'@extends':
+    type: default
+    context: blueprints://pages
+title: SEO
+form:
+  fields:
+    tabs:
+      fields:
+        options:
+          fields:
+            publishing:
+              fields:
+                header.metadata:
+                  unset@: true
+        seoplus_tab:
+          type: tab
+          title: SEO
+          ordering@: 1
+          fields:
+            tabs:
+              type: tabs
+              class: subtle
+              fields:
+                tab_1:
+                    type: tab
+                    title: SEO Meta Tags
+                    fields:
+                        header.metadata.title:
+                            toggleable: true
+                            type: text
+                            label: Meta Title
+                        header.metadata.description:
+                            toggleable: true
+                            rows: 5
+                            type: text
+                            label: Meta Beschreibung
+                        header.metadata.keywords:
+                            toggleable: true
+                            type: text
+                            classes: fancy
+                            label: Meta Keywords
+                            help: Komma getrennte Keywords
+                            validate:
+                                type: commalist
+                        header.metadata.images.type:
+                            toggleable: true
+                            type: filepicker
+                            folder: 'self@'
+                            preview_images: true
+                            label: Meta Bild
+                tab_2:
+                    type: tab
+                    title: Social Media Meta Tags
+                    fields:
+                        opengraph.fieldset:
+                            type: fieldset
+                            title: OpenGraph Meta Tags
+                            collapsed: true
+                            collapsible: true
+                            fields:
+                                header.metadata.og:title:
+                                    toggleable: true
+                                    type: text
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:titel
+                                    help: Titel der beim Teilen einer Seite angezeigt werden soll
+                                header.metadata.og:description:
+                                    toggleable: true
+                                    type: text
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:description
+                                    help: Beschreibung des Seiteninhalts
+                                header.metadata.og:locale:
+                                    toggleable: true
+                                    type: text
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:locale
+                                    help: Titel der beim Teilen einer Seite angezeigt werden soll
+                                    placeholder: de_CH
+                                header.metadata.og:type:
+                                    toggleable: true
+                                    type: text
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:type
+                                    help: In der Regel wird hier „Website“ hinterlegt, weitere Möglichkeiten finden Sie auf der offizielle Open Graph Protocol-Seite
+                                header.metadata.og:url:
+                                    toggleable: true
+                                    type: text
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:url
+                                    help: Hier hinterlegen Sie die URL, die geteilt werden soll. Dadurch stellen Sie sicher, dass konsequent dieselbe URL geteilt wird und verhindern eine Verfälschung durch Session-IDs, Suchparameter oder ähnliches
+                                header.metadata.og:site:name:
+                                    toggleable: true
+                                    type: text
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:site:name
+                                    help: Offizieller Namen ihrer Seite
+                                header.metadata.og:image:
+                                    toggleable: true
+                                    type: filepicker
+                                    folder: 'self@'
+                                    preview_images: true
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:image
+                                    help: URL eines Bildes, das beim Teilen oder Liken Ihrer Seite angezeigt werden soll
+                                header.metadata.og:image:alt:
+                                    toggleable: true
+                                    type: text
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:image:alt
+                                    help: Alternativtext
+                                header.metadata.og:image:width:
+                                    toggleable: true
+                                    type: text
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:image:width
+                                    help: Bildbreite in Pixel
+                                header.metadata.og:image:height:
+                                    toggleable: true
+                                    type: text
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:image:height
+                                    help: Bildhöhe in Pixel
+                                header.metadata.og:image:type:
+                                    toggleable: true
+                                    type: text
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:image:type
+                                    placeholder: image/png
+                                header.metadata.og:video:
+                                    toggleable: true
+                                    type: filepicker
+                                    folder: 'self@'
+                                    preview_images: true
+                                    classes: char-counter
+                                    source: metadata
+                                    label: og:video
+                                    help: A URL to a video file that complements this object
+                        analytics.fieldset:
+                            type: fieldset
+                            title: Social Media Analytics Meta Tags
+                            collapsed: true
+                            collapsible: true
+                            fields:
+                                header.metadata.twitter:site:
+                                    toggleable: true
+                                    type: text
+                                    label: Twitter Card Analytics
+                                    placeholder: '@website-username'
+                                header.metadata.fb:app_id:
+                                    toggleable: true
+                                    type: text
+                                    label: Facebook Domain Insights
+                                    placeholder: 'Deine App Id'
+                        twitter.fieldset:
+                            type: fieldset
+                            title: Twitter Meta Tags
+                            collapsed: true
+                            collapsible: true
+                            fields:
+                                header.metadata.twitter:title:
+                                    toggleable: true
+                                    type: text
+                                    label: Twitter Titel
+                                header.metadata.twitter:description:
+                                    toggleable: true
+                                    type: text
+                                    label: Twitter Beschreibung
+                                header.metadata.twitter:image:
+                                    toggleable: true
+                                    type: filepicker
+                                    folder: 'self@'
+                                    preview_images: true
+                                    label: Twitter Bild
+                                header.metadata.twitter:image:alt:
+                                    toggleable: true
+                                    type: text
+                                    label: Bild Alternativtext
+                                header.metadata.twitter:creator:
+                                    toggleable: true
+                                    type: text
+                                    label: Bild Alternativtext
+                                    placeholder: '@website-username'
+                                header.metadata.twitter:card:
+                                    toggleable: true
+                                    type: text
+                                    label: Twitter Card
+                                    placeholder: photo, player oder summary
+                                header.metadata.twitter:site:id:
+                                    toggleable: true
+                                    type: text
+                                    label: Twitter Site ID
+                                    placeholder: Twitter Site ID
